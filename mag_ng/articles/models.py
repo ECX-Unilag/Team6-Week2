@@ -18,13 +18,12 @@ categories_choices = (
 
 class ArticleModel(models.Model):
     title = models.CharField(max_length=255)
-    header_image = models.ImageField(blank=True, null=True, upload_to='images/')
+    cover_image = models.ImageField(blank=True, null=True, upload_to='images/')
     description = models.TextField(blank=True, null=True)
     author = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
     date_posted = models.DateTimeField(default=timezone.now)
     publish = models.BooleanField(default=False)
     categories = models.CharField(max_length=50, choices=categories_choices, default='fashion')
-
 
     def __str__(self):
         return self.title

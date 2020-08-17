@@ -1,0 +1,51 @@
+{% extends "articles/base.html" %}
+{% load custom_filter_tags %}
+{% block content %}
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-md-8 col-sm-12">
+                {% if user == object.author %}
+                <a class="btn btn-outline-primary" href="{% url 'edit' object.id %}">edit</a>
+                <a class="btn btn-outline-danger" href="{% url 'delete' object.id %}">delete</a>
+                {% endif %}
+                <div class="row">
+                    <div class="col-12">
+                        <h2>{{ object.title }}</h2>
+                        <h6>{{ object.categories }}</h6>
+                        {% if object.cover_image %}
+                            <img src="{{ object.header_image.url }}">
+                        {% endif %}
+                        {% if object.description %}
+                            <p>{{ object.description|linebreaks }}</p>
+                        {% endif %}
+                        <p>{{ object.author.username }}</p>
+                        <p class="text_muted">{{ object.date_posted|date:"F d, Y"  }}</p>
+                    </div>
+                </div>
+                {% for field in main_content %}
+                    <div class="row">
+                        <div class="col-12">
+                    {% if field|check_image %}
+                        {% if field.image %}
+                            <img src="{{ field.image.url }}">
+                            {% if field.image_description %}
+                                <p>{{ field.image_description }}</p>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                    {% if field|check_text %}
+                        {% if field.header %}
+                            <h3>{{ field.header }}</h3>
+                        {% endif %}
+                        {% if field.text %}
+                            <p>{{ field.text }}</p>
+                        {% endif %}
+                    {% endif %}
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+            <div class="col"></div>
+        </div>
+{% endblock content %}

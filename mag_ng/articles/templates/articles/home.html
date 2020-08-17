@@ -1,0 +1,20 @@
+{% extends "articles/base.html" %}
+{% block content %}
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-md-8 col-sm-12">
+                {% for article in objects %}
+                    <div class="row border-bottom pt-5">
+                        <div class="col-12">
+                            <h2>{{ article.title }}</h2>
+                            {% if article.cover_image %}
+                                <img src="{{ article.cover_image.url }}">
+                            {% endif %}
+                            <a href="{% url 'detail' article.id %}" class="btn btn-info mt-3 mb-3">See full article</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col"></div>
+        </div>
+{% endblock content %}
