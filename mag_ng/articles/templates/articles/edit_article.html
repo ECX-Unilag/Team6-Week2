@@ -1,0 +1,14 @@
+{% extends "articles/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form method="POST" action="" enctype="multipart/form-data" class="mt-5">
+    <h2>Edit this article</h2>
+            {% csrf_token %}
+            <fieldset class="form-group">
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Save and continue</button>
+            </div>
+        </form>
+{% endblock content %}
