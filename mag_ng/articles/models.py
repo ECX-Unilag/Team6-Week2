@@ -1,8 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.utils import timezone
 from datetime import datetime, timedelta
 
+User = get_user_model()
 
 def default_start_time():
     now = datetime.now()
@@ -24,6 +26,7 @@ class ArticleModel(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     publish = models.BooleanField(default=False)
     categories = models.CharField(max_length=50, choices=categories_choices, default='fashion')
+    objects = models.Manager()
 
     def __str__(self):
         return self.title
@@ -36,7 +39,7 @@ class ImageModel(models.Model):
     timestamp = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.article.title
+        return self.article
 
 
 class TextModel(models.Model):
@@ -46,4 +49,4 @@ class TextModel(models.Model):
     timestamp = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.article.title
+        return self.article
