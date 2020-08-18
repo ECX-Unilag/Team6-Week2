@@ -143,6 +143,10 @@ nav img {
     padding-top: 0.2rem !important;
     padding-bottom: 0.2rem !important;
 }
+.nav_bar-new {
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 20px 20px 0px 0px;
+}
 .nav_bar-new .nav-link {
     color: var(--text-gray) !important;
 }
@@ -175,14 +179,18 @@ nav img {
     text-decoration: none;
 }
 #sign_up {
-    border: 1px solid var(--text-white);
+    border: 2px solid var(--text-white);
     border-radius: 8px;
+}
+.nav_bar-new #sign_up {
+    border: 2px solid var(--main-red);
+    color: var(--main-red) !important;
 }
 #sign_up:hover,
 #sign_up:focus,
 #sign_up:active {
     background-color: var(--main-red);
-    border: 1px solid var(--main-red);
+    border: 2px solid var(--main-red);
     color: var(--text-white) !important;
 }
 .navbar-toggler {
