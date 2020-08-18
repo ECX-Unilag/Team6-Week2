@@ -1,0 +1,40 @@
+html{
+    min-width:450;
+}
+
+.cover-img-div, .article-info{
+    width:100%;
+}
+
+
+.article-info{
+    padding:40px;
+}
+
+.cover-img{
+    width:100%;
+}
+.article-info{
+    text-align:center;
+    height:100%;
+    display: table-cell;
+    vertical-align:middle;
+}
+
+.article-head{
+    padding: 0 60px;
+}
+
+.article-title{
+    font-size:40px;
+    font-weight:400;
+}
+
+.red-line{
+    height:5px;
+    width:50px;
+    background:red;
+    margin:auto;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}

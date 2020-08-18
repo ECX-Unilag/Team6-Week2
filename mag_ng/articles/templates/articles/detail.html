@@ -1,51 +1,115 @@
 {% extends "articles/base.html" %}
 {% load custom_filter_tags %}
 {% block content %}
-        <div class="row">
-            <div class="col"></div>
-            <div class="col-md-8 col-sm-12">
-                {% if user == object.author %}
-                <a class="btn btn-outline-primary" href="{% url 'edit' object.id %}">edit</a>
-                <a class="btn btn-outline-danger" href="{% url 'delete' object.id %}">delete</a>
-                {% endif %}
-                <div class="row">
-                    <div class="col-12">
-                        <h2>{{ object.title }}</h2>
-                        <h6>{{ object.categories }}</h6>
-                        {% if object.cover_image %}
-                            <img src="{{ object.header_image.url }}">
-                        {% endif %}
-                        {% if object.description %}
-                            <p>{{ object.description|linebreaks }}</p>
-                        {% endif %}
-                        <p>{{ object.author.username }}</p>
-                        <p class="text_muted">{{ object.date_posted|date:"F d, Y"  }}</p>
+    <div class="container-fluid">
+        {% if object.cover_image %}
+            <div class="row article-head">
+                <div class="col-lg-6 col-md-12 max-height">
+                    <div class="cover-img-div">
+                        <img src="{{ object.cover_image.url }}" alt="article-cover-image" class="cover-img">
                     </div>
                 </div>
-                {% for field in main_content %}
-                    <div class="row">
-                        <div class="col-12">
-                    {% if field|check_image %}
-                        {% if field.image %}
-                            <img src="{{ field.image.url }}">
-                            {% if field.image_description %}
-                                <p>{{ field.image_description }}</p>
-                            {% endif %}
-                        {% endif %}
-                    {% endif %}
-                    {% if field|check_text %}
-                        {% if field.header %}
-                            <h3>{{ field.header }}</h3>
-                        {% endif %}
-                        {% if field.text %}
-                            <p>{{ field.text }}</p>
-                        {% endif %}
-                    {% endif %}
+                <div class="col-lg-6 col-md-12 max-height">
+                    <div class="article-info">
+                        <div class="category-wrapper">
+                            <p class="article-category text-muted">{{ object.categories|capitalize_all }}</p>
                         </div>
+                        <h1 class="article-title">{{ object.title }}</h1>
+                        <div class="red-line"></div>
+                        <span class="article-author">
+                            <span class="prefix">By <span class="article-author"><a href="#" class="author-link">{{ object.author.username|capitalize_all }}</a> </span></span>
+                        </span><br>
+                        <time class="article_date text-muted">{{ object.date_posted|date:"F d, Y"  }}</time>
+                        {% if object.description %}
+                            <div class="description-wrapper">
+                                <p class="description text-muted">{{ object.description|linebreaks }}</p>
+                            </div>
+                        {% endif %}
                     </div>
-
-                {% endfor %}
+                </div>
             </div>
-            <div class="col"></div>
-        </div>
+        {% else %}
+            <div class="row">
+                <div class="co-12">
+                    <div class="article-info">
+                        <div class="category-wrapper">
+                            <p class="article-category">{{ object.categories|capitalize_all }}</p>
+                        </div>
+                        <h1 class="article-title">{{ object.title }}</h1>
+                        <div class="red-line"></div>
+                        <span class="article-author">
+                            <span class="prefix">By <span class="article-author"><a href="#" class="author-link">{{ object.author.username|capitalize_all }}</a> </span></span>
+                        </span>
+                        <time class="article_date text-muted">{{ object.date_posted|date:"F d, Y"  }}</time>
+                        {% if object.description %}
+                            <div class="description-wrapper">
+                                <p class="description text-muted">{{ object.description|linebreaks }}</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--        <div class="row">-->
+<!--            <div class="col"></div>-->
+<!--            <div class="col-md-8 col-sm-12">-->
+<!--                {% if user == object.author %}-->
+<!--                <a class="btn btn-outline-primary" href="{% url 'articles:edit' object.id %}">edit</a>-->
+<!--                <a class="btn btn-outline-danger" href="{% url 'articles:delete' object.id %}">delete</a>-->
+<!--                {% endif %}-->
+<!--                <div class="row">-->
+<!--                    <div class="col-12">-->
+<!--                        <h2>{{ object.title }}</h2>-->
+<!--                        <h6>{{ object.categories }}</h6>-->
+<!--                        {% if object.cover_image %}-->
+<!--                            <img src="{{ object.cover_image.url }}">-->
+<!--                        {% endif %}-->
+<!--                        {% if object.description %}-->
+<!--                            <p>{{ object.description|linebreaks }}</p>-->
+<!--                        {% endif %}-->
+<!--                        <p>{{ object.author.username }}</p>-->
+<!--                        <p class="text_muted">{{ object.date_posted|date:"F d, Y"  }}</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                {% for field in main_content %}-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-12">-->
+<!--                    {% if field|check_image %}-->
+<!--                        {% if field.image %}-->
+<!--                            <img src="{{ field.image.url }}">-->
+<!--                            {% if field.image_description %}-->
+<!--                                <p>{{ field.image_description }}</p>-->
+<!--                            {% endif %}-->
+<!--                        {% endif %}-->
+<!--                    {% endif %}-->
+<!--                    {% if field|check_text %}-->
+<!--                        {% if field.header %}-->
+<!--                            <h3>{{ field.header }}</h3>-->
+<!--                        {% endif %}-->
+<!--                        {% if field.text %}-->
+<!--                            <p>{{ field.text }}</p>-->
+<!--                        {% endif %}-->
+<!--                    {% endif %}-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                {% endfor %}-->
+<!--            </div>-->
+<!--            <div class="col"></div>-->
+<!--        </div>-->
 {% endblock content %}

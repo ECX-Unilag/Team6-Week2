@@ -12,3 +12,8 @@ def check_image(value):
 @register.filter
 def check_text(value):
     return type(value) == TextModel
+
+
+@register.filter
+def capitalize_all(value):
+    return value.upper()

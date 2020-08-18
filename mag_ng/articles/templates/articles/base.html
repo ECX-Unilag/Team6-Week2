@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,8 +8,12 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-    <title>Mag_ng</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'articles/css/main.css' %}">
+     {% if title %}
+    <title>Mag-Ng | {{ title }}</title>
+    {% else %}
+    <title>Mag-Ng</title>
+    {% endif %}
   </head>
   <body>
 
@@ -20,9 +25,11 @@
           </div>
           {% endfor %}
           {% endif %}
+      </div>
+      <main>
         {% block content %}
         {% endblock %}
-      </div>
+      </main>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
