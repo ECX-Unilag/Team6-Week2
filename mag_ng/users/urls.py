@@ -1,7 +1,7 @@
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 
-from mag_ng.users import views
+from . import views
 
 app_name = 'users'
 urlpatterns = [

@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
 from django.contrib import messages
 from itertools import chain
+from django.db.models import Q
 
 
 class HomeView(ListView):
@@ -184,3 +185,14 @@ class CategoryView(ListView):
         context['category'] = self.kwargs.get('category')
         return context
 
+class SearchView(ListView):
+    model = ArticleModel
+    template_name = 'search_view.html'
+    #context_object_name = 'articles'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        article_list = ArticleModel.objects.filter(
+            Q(title__icontains=query) | Q(author__icontains=query)
+        )
+        return article_list
