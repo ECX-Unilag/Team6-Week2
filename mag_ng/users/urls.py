@@ -1,8 +1,14 @@
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
+<<<<<<< HEAD
 
 from . import views
 
+=======
+
+from mag_ng.users import views
+
+>>>>>>> 4c6ca556084101156671afc9edae4620a6d344e9
 app_name = 'users'
 urlpatterns = [
     path('signup/', views.signup, name='signup'),

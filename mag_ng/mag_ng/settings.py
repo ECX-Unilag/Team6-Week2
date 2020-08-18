@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'APIs.apps.ApisConfig',
     'crispy_forms',
     'rest_framework',
+<<<<<<< HEAD
     'rest_framework.authtoken',
+=======
+>>>>>>> 4c6ca556084101156671afc9edae4620a6d344e9
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -149,6 +152,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
+<<<<<<< HEAD
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 REST_FRAMEWORK = {
@@ -156,3 +160,6 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 15,
     'DEFAULT_AUTHENTICATION_CLASSES':('rest_framework.authentication.TokenAuthentication',)
 }
+=======
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+>>>>>>> 4c6ca556084101156671afc9edae4620a6d344e9
