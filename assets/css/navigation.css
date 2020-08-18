@@ -21,7 +21,10 @@ nav img {
 /* ============================================= */
 /* ================ PAGE PRELOADER ============= */
 /* ============================================= */
-
+.loader img {
+    width: 100%;
+    height: auto;
+}
 .loader {
     position: absolute;
     display: flex;
@@ -150,7 +153,7 @@ nav img {
 .nav_bar-new .nav-link {
     color: var(--text-gray) !important;
 }
-.nav_bar-new .navbar-toggler-icon {
+.nav_bar-new .navbar-toggler i {
     color: var(--text-gray) !important;
 }
 
@@ -439,7 +442,6 @@ nav img {
     .navbar-collapse {
         display: flex;
         flex-direction: column;
-        background-color: var(--lighter-gray);
     }
     .navbar-collapse ul:nth-child(2) {
         margin: auto !important;
