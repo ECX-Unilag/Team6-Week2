@@ -4,19 +4,63 @@ from .models import ArticleModel, ImageModel, TextModel
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.forms import inlineformset_factory
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseForbidden
+from django.http import HttpResponseForbidden, Http404
 from django.contrib import messages
 from itertools import chain
+import random
+categories_choices = (
+    'Art & Architecture',
+    'Boating & Aviation',
+    'Business & Finance',
+    'Cars & Motorcycles',
+    'Celebrity & Gossip',
+    'Comics & Manga',
+    'Crafts',
+    'Culture & Literature',
+    'Family & Parenting',
+    'Fashion',
+    'Food & Wine',
+    'Health & Fitness',
+    'Home & Garden',
+    'Hunting & Fishing',
+    'Kids & Teen',
+    'Luxury',
+    'Men\'s Lifestyle',
+    'Movies, Tv & Music',
+    'News & Politics',
+    'Photography',
+    'Science & Engineering',
+    'Sports',
+    'Tech & Gaming',
+    'Travel & Outdoor',
+    'Women\'s Lifestyle',
+    'Adult +18',)
 
 
 class HomeView(ListView):
     model = ArticleModel
     template_name = 'articles/home.html'
-    context_object_name = 'objects'
+    context_object_name = 'fashion'
     ordering = ['-date_posted']
 
-    def get_queryset(self):
-        return ArticleModel.objects.filter(publish=True)
+    # def get_queryset(self):
+    #     return ArticleModel.objects.filter(publish=True)
+
+    def get_context_data(self, **kwargs):
+        db_size = ArticleModel.objects.count()
+        random_list = random.sample(range(db_size - 1), 5)
+
+        context = super().get_context_data(**kwargs)
+        context['fashion'] = list(ArticleModel.objects.filter(publish=True, categories='Fashion').order_by(
+            '-date_posted')[:5])
+        context['business'] = list(ArticleModel.objects.filter(publish=True, categories='Business & Finance').order_by(
+            '-date_posted')[:5])
+        context['science'] = list(ArticleModel.objects.filter(publish=True, categories='Science & Engineering').order_by(
+            '-date_posted')[:5])
+        context['recent'] = list(ArticleModel.objects.filter(publish=True).order_by(
+            '-date_posted')[:5])
+        context['recommended'] = list(ArticleModel.objects.filter(id__in=random_list, publish=True))
+        return context
 
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
@@ -26,7 +70,7 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         user_latest_article = ArticleModel.objects.all().filter(author=self.request.user).last()
-        return reverse('write', kwargs={'form_id': user_latest_article.id})
+        return reverse('articles:write', kwargs={'form_id': user_latest_article.id})
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -48,7 +92,7 @@ def write_view(request, form_id):
         if formset_2.is_valid() and formset_1.is_valid():
             formset_1.save()
             formset_2.save()
-            return redirect('write', form_id=form_id)
+            return redirect('articles:write', form_id=form_id)
     context = {
         'article': article,
         'form_1': formset_1,
@@ -64,7 +108,7 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def get_success_url(self):
         article = self.get_object()
-        return reverse('write', kwargs={'form_id': article.id})
+        return reverse('articles:write', kwargs={'form_id': article.id})
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -101,7 +145,7 @@ def publish(request, form_id):
         messages.success(request, 'Your article has been published')
     else:
         messages.info(request, 'This article has been published already')
-    return redirect('home')
+    return redirect('articles:home')
 
 
 class ArticleDetailView(DetailView):
@@ -166,7 +210,7 @@ class DraftView(LoginRequiredMixin, ListView):
     ordering = ['-date_posted']
 
     def get_queryset(self):
-        return ArticleModel.objects.filter(publish=False, author=self.request.user)
+        return ArticleModel.objects.filter(publish=False, author=self.request.user).order_by('-date_posted')
 
 
 class CategoryView(ListView):
@@ -176,11 +220,25 @@ class CategoryView(ListView):
     ordering = ['-date_posted']
 
     def get_queryset(self):
-        # return get_object_or_404(ArticleModel, publish=True, categories=self.kwargs.get('category'))
-        return ArticleModel.objects.filter(publish=True, categories=self.kwargs.get('category'))
+        return ArticleModel.objects.filter(publish=True, categories=self.kwargs.get('category')).order_by('-date_posted')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['category'] = self.kwargs.get('category')
+        return context
+
+
+class RecentView(ListView):
+    model = ArticleModel
+    template_name = 'articles/category.html'
+    context_object_name = 'objects'
+    ordering = ['-date_posted']
+
+    def get_queryset(self):
+        return ArticleModel.objects.filter(publish=True).order_by('-date_posted')[:25]
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['category'] = 'Recently Added'
         return context
 

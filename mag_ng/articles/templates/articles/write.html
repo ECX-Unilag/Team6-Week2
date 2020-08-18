@@ -1,25 +1,28 @@
 {% extends "articles/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-<h1>{{ article.title }}</h1>
-<h6>{{ article.categories }}</h6>
+<div class="container">
+    <h2>{{ article.title }}</h2>
+    <h6 class="pt-3">Category: {{ article.categories }}</h6>
         <form action="" method="POST"  enctype="multipart/form-data" class="mt-5">
             {% csrf_token %}
-            <p>nb: the oder in which you save your work, same order will be used to display it</p>
+            <p><span class="text-muted">nb: The oder in which you save your work, same order will be used to display it</span></p>
             <div class="row">
-                <div class="col-6">
+                <div class="col-md-6 col-sm-12">
                     <h4>Add image field</h4>
                     {{ form_1|crispy }}
                 </div>
-                <div class="col-6">
+                <div class="col-md-6 col-sm-12">
                     <h4>Add text field</h4>
                     {{ form_2|crispy }}
                 </div>
             </div>
-            <button type="submit" class="btn btn-outline-info">Save and continue</button>
+            <button type="submit" class="btn btn-outline-info">Save and Continue</button>
             </form>
-<a href="{% url 'publish' article.id %}" class="btn btn-success mt-3">Publish</a>
-<a href="{% url 'preview' article.id %}" class="btn btn-info mt-3 ml-3">See Preview</a>
+<a href="{% url 'articles:publish' article.id %}" class="btn btn-success mt-3">Publish</a>
+<a href="{% url 'articles:preview' article.id %}" class="btn btn-info mt-3 ml-3">See Preview</a>
+</div>
+
 
 
 {% endblock content %}

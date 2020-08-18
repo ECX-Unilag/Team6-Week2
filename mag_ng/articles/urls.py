@@ -12,6 +12,7 @@ urlpatterns = [
     path('detail/<int:pk>/', views.ArticleDetailView.as_view(), name='detail'),
     path('preview/<int:pk>/', views.PreviewView.as_view(), name='preview'),
     path('draft/', views.DraftView.as_view(), name='draft'),
-    path('category/<category>/', views.CategoryView.as_view(), name='category')
+    path('category/<category>/', views.CategoryView.as_view(), name='category'),
+    path('recent/', views.RecentView.as_view(), name='recent')
 
 ]

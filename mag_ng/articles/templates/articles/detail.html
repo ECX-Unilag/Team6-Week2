@@ -17,12 +17,12 @@
                         <h1 class="article-title">{{ object.title }}</h1>
                         <div class="red-line"></div>
                         <span class="article-author">
-                            <span class="prefix">By <span class="article-author"><a href="#" class="author-link">{{ object.author.username|capitalize_all }}</a> </span></span>
+                            <span class="prefix">By <span class="article-author"><a href="{% url 'users:profile' object.author.id %}" class="author-link text-muted">{{ object.author.username|capitalize_all }}</a> </span></span>
                         </span><br>
                         <time class="article_date text-muted">{{ object.date_posted|date:"F d, Y"  }}</time>
                         {% if object.description %}
-                            <div class="description-wrapper">
-                                <p class="description text-muted">{{ object.description|linebreaks }}</p>
+                            <div class="description-wrapper pt-3">
+                                <span class="text-muted">{{ object.description|linebreaks }}</span>
                             </div>
                         {% endif %}
                     </div>
@@ -30,7 +30,8 @@
             </div>
         {% else %}
             <div class="row">
-                <div class="co-12">
+                <div class="col"></div>
+                <div class="col-md-8 col-sm-12">
                     <div class="article-info">
                         <div class="category-wrapper">
                             <p class="article-category">{{ object.categories|capitalize_all }}</p>
@@ -48,8 +49,12 @@
                         {% endif %}
                     </div>
                 </div>
+                <div class="col"></div>
             </div>
         {% endif %}
+    </div>
+    <div class="container">
+
     </div>
 
 

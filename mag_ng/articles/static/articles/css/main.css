@@ -1,5 +1,5 @@
 html{
-    min-width:450;
+    min-width:450px;
 }
 
 .cover-img-div, .article-info{
@@ -9,17 +9,13 @@ html{
 
 .article-info{
     padding:40px;
+    text-align:center;
 }
 
 .cover-img{
     width:100%;
 }
-.article-info{
-    text-align:center;
-    height:100%;
-    display: table-cell;
-    vertical-align:middle;
-}
+
 
 .article-head{
     padding: 0 60px;
@@ -38,3 +34,18 @@ html{
     margin-top: 25px;
     margin-bottom: 10px;
 }
+
+@media (max-width: 600px){
+    .article-head{
+    padding: 0 12px;
+}
+.article-title{
+    font-size:25px;
+    font-weight:400;
+}
+.article-info{
+    padding:20px;
+
+}
+}
+

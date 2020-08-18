@@ -17,3 +17,19 @@ def check_text(value):
 @register.filter
 def capitalize_all(value):
     return value.upper()
+
+
+@register.filter
+def shrink(value):
+    return value[:10]
+
+
+@register.filter
+def get_index(item, lst):
+    return lst.index(item)
+
+
+@register.filter
+def multiply(value):
+    value = int(value)
+    return str(value * 100)
