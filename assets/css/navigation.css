@@ -184,7 +184,6 @@ nav img {
 }
 .nav_bar-new #sign_up {
     border: 2px solid var(--main-red);
-    color: var(--main-red) !important;
 }
 #sign_up:hover,
 #sign_up:focus,
