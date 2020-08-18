@@ -447,6 +447,11 @@ nav img {
         margin: auto !important;
         text-align: center;
     }
+    .dropdown-menu {
+        background-color: var(--text-white) !important;
+        padding: 0.5rem 0.7rem!important;
+    }
+    
     #main_footer {
         margin-top: 4rem;
     }
