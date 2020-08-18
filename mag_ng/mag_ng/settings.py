@@ -83,26 +83,26 @@ WSGI_APPLICATION = 'mag_ng.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-"""DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}"""
-# i decided not to delete your migrations again, i just switched databases
-DATABASES = {
-    'default':{
-        'ENGINE':'django.db.backends.postgresql_psycopg2',
-        'NAME':'magazine',
-        'USER':'ololade',
-        'PASSWORD':'loldozen001',
-        'HOST':'localhost',
-        'PORT':'',
-        'TEST':{
-            'NAME':'test_magazine_db',
-        },
-    },
 }
+# i decided not to delete your migrations again, i just switched databases
+# DATABASES = {
+#     'default':{
+#         'ENGINE':'django.db.backends.postgresql_psycopg2',
+#         'NAME':'magazine',
+#         'USER':'ololade',
+#         'PASSWORD':'loldozen001',
+#         'HOST':'localhost',
+#         'PORT':'',
+#         'TEST':{
+#             'NAME':'test_magazine_db',
+#         },
+#     },
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -144,7 +144,10 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_REDIRECT_URL = 'articles:home'
+LOGIN_URL = 'users:login'
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+

@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 
 User = get_user_model()
 
+
 def default_start_time():
     now = datetime.now()
     start = now.replace(hour=22, minute=0, second=0, microsecond=0)
@@ -13,8 +14,32 @@ def default_start_time():
 
 
 categories_choices = (
-    ('fashion', 'fashion'),
-    ('beauty', 'beauty')
+    ('art & architecture', 'Art & Architecture'),
+    ('boating & aviation', 'Boating & Aviation'),
+    ('business & finance', 'Business & Finance'),
+    ('cars & motorcycles', 'Cars & Motorcycles'),
+    ('celebrity & gossip', 'Celebrity & Gossip'),
+    ('comics & manga', 'Comics & Manga'),
+    ('crafts', 'Crafts'),
+    ('culture & literature', 'Culture & Literature'),
+    ('family & parenting', 'Family & Parenting'),
+    ('fashion', 'Fashion'),
+    ('food & wine', 'Food & Wine'),
+    ('health & fitness', 'Health & Fitness'),
+    ('home & garden', 'Home & Garden'),
+    ('hunting & fishing', 'Hunting & Fishing'),
+    ('kids & teen', 'Kids & Teen'),
+    ('luxury', 'Luxury'),
+    ('men\'s lifestyle', 'Men\'s Lifestyle'),
+    ('movies, tv & music', 'Movies, Tv & Music'),
+    ('news & politics', 'News & Politics'),
+    ('Photography', 'Photography'),
+    ('science & engineering', 'Science & Engineering'),
+    ('sports', 'Sports'),
+    ('tech & gaming', 'Tech & Gaming'),
+    ('travel & outdoor', 'Travel & Outdoor'),
+    ('women\'s lifestyle', 'Women\'s Lifestyle'),
+    ('adult +18', 'Adult +18'),
 )
 
 

@@ -2,10 +2,8 @@
 {% load static %}
 {% if user %}
     <p> {{ user|upper }}</p>
-    <p><img src="{{MEDIA_URL}}/{{user.avatar}}"></p>
     {{user.last_login}}<br>
     {{user.email}}<br>
-    {{str(user)}}<br>
     {{user.bio}}<br>
     {{user.social_handle}}<br>
 {% endif %}

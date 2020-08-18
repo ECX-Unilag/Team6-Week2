@@ -3,11 +3,16 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.views.generic import DetailView
 from django.contrib.auth import get_user_model
+from django.contrib import messages
 
 from .forms import CustomUserCreationForm
 
 User = get_user_model()
+
+
 def signup(request):
+    if request.user.is_authenticated:
+        return redirect('articles:home')
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST, request.FILES)
         if form.is_valid():
@@ -15,11 +20,13 @@ def signup(request):
             user.save()
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(email=user.email, password=raw_password)
-            login(request, user)
-            return redirect('articles:home')
+            # login(request, user)
+            messages.success(request,f'Your account has been created, you\'re now able to log in.')
+            return redirect('users:login')
     else:
         form = CustomUserCreationForm()
-    return render(request, 'users/signup.html',{'form':form})
+    return render(request, 'users/signup.html', {'form': form, 'title': 'Sign-Up'})
+
 
 class Profile(DetailView):
     model = User
@@ -30,7 +37,7 @@ class Profile(DetailView):
     query_pk_and_slug = True
 
     def get_queryset(self, **kwargs):
-        return User.objects.get(pk=self.kwargs['pk'], email=self.kwargs['user'])
+        return User.objects.get(pk=self.kwargs['pk'])
 
     def get_object(self, **kwargs):
-        return User.objects.get(pk=self.kwargs['pk'], email=self.kwargs['user'])
+        return User.objects.get(pk=self.kwargs['pk'])
