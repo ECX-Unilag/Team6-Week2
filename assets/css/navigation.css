@@ -150,6 +150,10 @@ nav img {
 .nav_bar-new .nav-link {
     color: var(--text-gray) !important;
 }
+.nav_bar-new .navbar-toggler-icon {
+    color: var(--text-gray) !important;
+}
+
 .nav-link:hover {
     color: var(--main-red) !important;
 }
