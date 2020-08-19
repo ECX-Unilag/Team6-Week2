@@ -19,7 +19,8 @@
                     {% endif %}
                 </div>
                 <div class="magazine_card_content">
-                    <p class="magazine_title">{{ article.title|shrink }}</p>
+                    <span class="magazine_title">{{ article.categories }}</span>
+                    <h6>{{ article.title|shrink }}...</h6>
                     <p class="time">{{ article.date_posted|date:"F d, Y" }}</p>
                 </div>
             </div>

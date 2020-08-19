@@ -47,7 +47,7 @@ class Profile(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['count'] = ArticleModel.objects.filter(publish=True, author=self.get_object()).count()
-        context['articles'] = ArticleModel.objects.filter(publish=True, author=self.get_object())
+        context['articles'] = ArticleModel.objects.filter(publish=True, author=self.get_object()).order_by('-date_posted')
         return context
 
 

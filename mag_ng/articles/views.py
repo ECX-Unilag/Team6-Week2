@@ -254,7 +254,7 @@ class RecentView(ListView):
 class SearchView(ListView):
     model = ArticleModel
     template_name = 'search_view.html'
-    #context_object_name = 'articles'
+    context_object_name = 'objects'
 
     def get_queryset(self):
         query = self.request.GET.get('q')
@@ -262,4 +262,9 @@ class SearchView(ListView):
             Q(title__icontains=query) | Q(author__icontains=query)
         )
         return article_list
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['category'] = self.request.GET.get('q')
+        return context
 

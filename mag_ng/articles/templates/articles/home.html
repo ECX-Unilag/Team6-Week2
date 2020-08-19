@@ -145,6 +145,7 @@
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'users:profile' user.id %}">MY LIBRARY</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'articles:create' %}">CREATE</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'users:logout' %}">LOGOUT</a></li>
                     {% else %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'users:login' %}">SIGN IN</a></li>
@@ -171,7 +172,7 @@
                 <form action="{% url 'articles:search' %}" method="GET">
                     <h3>SEARCH YOUR MAGAZINES</h3>
                     <div class="position-relative mt-lg-3 mt-3">
-                        <i class='bx bx-search-alt-2'></i>
+                        <button type="submit"> <i class='bx bx-search-alt-2'></i></button>
                         <input type="text" name="q" class="form-control" id="search_field"
                             placeholder="Search for your magazines...">
                     </div>
@@ -204,7 +205,8 @@
                     {% endif %}
                 </div>
                 <div class="magazine_card_content">
-                    <p class="magazine_title">{{ article.title|shrink }}</p>
+                    <span class="magazine_title">{{ article.categories }}</span>
+                    <h6>{{ article.title|shrink }}...</h6>
                     <p class="time">{{ article.date_posted|date:"F d, Y" }}</p>
                 </div>
             </div>
@@ -228,7 +230,8 @@
                     {% endif %}
                 </div>
                 <div class="magazine_card_content">
-                    <p class="magazine_title">{{ article.title|shrink }}</p>
+                    <span class="magazine_title">{{ article.categories }}</span>
+                    <h6>{{ article.title|shrink }}...</h6>
                     <p class="time">{{ article.date_posted|date:"F d, Y" }}</p>
                 </div>
             </div>
@@ -252,7 +255,8 @@
                     {% endif %}
                 </div>
                 <div class="magazine_card_content">
-                    <p class="magazine_title">{{ article.title|shrink }}</p>
+                    <span class="magazine_title">{{ article.categories }}</span>
+                    <h6>{{ article.title|shrink }}...</h6>
                     <p class="time">{{ article.date_posted|date:"F d, Y" }}</p>
                 </div>
             </div>
@@ -276,7 +280,8 @@
                     {% endif %}
                 </div>
                 <div class="magazine_card_content">
-                    <p class="magazine_title">{{ article.title|shrink }}</p>
+                    <span class="magazine_title">{{ article.categories }}</span>
+                    <h6>{{ article.title|shrink }}...</h6>
                     <p class="time">{{ article.date_posted|date:"F d, Y" }}</p>
                 </div>
             </div>
@@ -300,7 +305,8 @@
                     {% endif %}
                 </div>
                 <div class="magazine_card_content">
-                    <p class="magazine_title">{{ article.title|shrink }}</p>
+                    <span class="magazine_title">{{ article.categories }}</span>
+                    <h6>{{ article.title|shrink }}...</h6>
                     <p class="time">{{ article.date_posted|date:"F d, Y" }}</p>
                 </div>
             </div>

@@ -4,6 +4,8 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.utils import timezone
 from django.utils.text import slugify
 from django.utils. translation import gettext_lazy as _
+from PIL import Image
+from django.core.files.storage import default_storage as storage
 
 from .managers import CustomUserManager
 
@@ -38,3 +40,14 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.email)
         super(CustomUser, self).save()
+
+        img = Image.open(self.avatar)
+
+        if img.height > 514 or img.width > 534:
+            output_size = (514, 534)
+            img.thumbnail(output_size)
+            # img.save(self.avatar.path)
+            fh = storage.open(self.avatar.name, "w")
+            picture_format = 'png'
+            img.save(fh, picture_format)
+            fh.close()

@@ -21,7 +21,9 @@ def capitalize_all(value):
 
 @register.filter
 def shrink(value):
-    return value[:10]
+    if len(value) < 30:
+        return value
+    return value[:29]
 
 
 @register.filter
