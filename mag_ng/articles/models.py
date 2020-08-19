@@ -64,7 +64,7 @@ class ImageModel(models.Model):
     timestamp = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.article
+        return self.article.title
 
 
 class TextModel(models.Model):
@@ -74,4 +74,4 @@ class TextModel(models.Model):
     timestamp = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.article
+        return self.article.title

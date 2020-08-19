@@ -17,7 +17,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     slug = models.SlugField(default='slug')
     is_staff = models.BooleanField(_('staff'),default=False)
     is_active = models.BooleanField(_('active'),default=True)
-    date_joined = models.DateTimeField(_('date joined'),auto_now_add=True)
+    date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
     last_login = models.DateTimeField(_('last login'), auto_now=True)
     avatar = models.ImageField(upload_to='avatars', default='default.jpg', blank=True, null=True)
     bio = models.TextField(_('Bio'), blank=True, null=True)

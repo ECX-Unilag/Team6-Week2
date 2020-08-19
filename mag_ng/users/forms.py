@@ -18,7 +18,7 @@ class CustomUserChangeForm(UserChangeForm):
         fields = ('email', 'username', 'avatar', 'bio', 'social_handle',)
 
     @transaction.atomic
-    def save(self):
+    def save(self, *args, **kwargs):
         user = super().save(commit=False)
         user.is_guest = True
         user.save()

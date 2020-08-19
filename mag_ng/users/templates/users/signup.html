@@ -1,7 +1,8 @@
-{% extends "users/base.html" %}
+{% extends "articles/base.html" %}
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
+        <main>
         <form id="login" method="POST" action="">
                 {% csrf_token %}
                 <legend>Sign Up</legend>
@@ -32,4 +33,5 @@
                   <p>CLICK HERE TO <a href="{% url 'users:login' %}" id="signuplink">SIGN IN</a></p>
                 </div>
         </form>
+            </main>
 {% endblock content %}

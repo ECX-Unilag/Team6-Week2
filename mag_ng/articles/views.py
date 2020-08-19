@@ -8,6 +8,7 @@ from django.http import HttpResponseForbidden, Http404
 from django.contrib import messages
 from itertools import chain
 import random
+
 categories_choices = (
     'Art & Architecture',
     'Boating & Aviation',
@@ -169,7 +170,9 @@ class ArticleDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        obj = self.get_object()
         context['main_content'] = self.sort()
+        context['more'] = ArticleModel.objects.filter(author=obj.author, publish=True).order_by('-date_posted')[:5]
         return context
 
 
