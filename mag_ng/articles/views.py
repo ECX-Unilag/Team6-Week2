@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden, Http404
 from django.contrib import messages
 from itertools import chain
+
 import random
 
 categories_choices = (
@@ -36,6 +37,9 @@ categories_choices = (
     'Travel & Outdoor',
     'Women\'s Lifestyle',
     'Adult +18',)
+
+from django.db.models import Q
+
 
 
 class HomeView(ListView):
@@ -231,6 +235,7 @@ class CategoryView(ListView):
         return context
 
 
+
 class RecentView(ListView):
     model = ArticleModel
     template_name = 'articles/category.html'
@@ -244,4 +249,17 @@ class RecentView(ListView):
         context = super().get_context_data(**kwargs)
         context['category'] = 'Recently Added'
         return context
+
+
+class SearchView(ListView):
+    model = ArticleModel
+    template_name = 'search_view.html'
+    #context_object_name = 'articles'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        article_list = ArticleModel.objects.filter(
+            Q(title__icontains=query) | Q(author__icontains=query)
+        )
+        return article_list
 

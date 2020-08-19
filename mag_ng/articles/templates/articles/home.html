@@ -168,14 +168,15 @@
 
 <!--                    <button href="#top-magazine" class="get_started">GET STARTED</button>-->
                 </div>
-                <form action="">
+                <form action="{% url 'articles:search' %}" method="GET">
                     <h3>SEARCH YOUR MAGAZINES</h3>
                     <div class="position-relative mt-lg-3 mt-3">
                         <i class='bx bx-search-alt-2'></i>
-                        <input type="text" name="" class="form-control" id="search_field"
+                        <input type="text" name="q" class="form-control" id="search_field"
                             placeholder="Search for your magazines...">
                     </div>
                 </form>
+
             </div>
             <div class="right_landing d-flex flex-column justify-content-center align-items-center">
                 <div class="landing_img_cover">

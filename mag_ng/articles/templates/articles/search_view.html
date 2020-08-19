@@ -1,0 +1,9 @@
+<h2> Search Results</h2>
+
+<ul>
+    {% for article in article_list %}
+    <li>
+        {{article.name}} by {{article.author}}
+    </li>
+    {% endfor %}
+</ul>
