@@ -2,6 +2,21 @@
 
 Project Description: An Online Magazine Website.The magazine has varieties of sections like Science Section,Technology section,Business Section and Fashion Section 
 
+
+MagNg — is an online magazine that’s helps user to access their magazines online, across all devices, devices like the mobile phone, tablets, desktops and pc. With a minimal and creative design easy to use.
+
+
+The Challenge
+
+The Challenge was to build a simple interface design for both the web and the mobile design, and users having good experience while using MagNg, for them to access their magazines.
+
+
+The Solution
+
+Users find it hard to access their magazines, with MagNg across all devices, user will be able to get access to their magazines, and share them with their friends and families.
+Our solutions resolves around accessibility, users accessing their magazines.
+
+
 Here are the links to the UI/UX Designs.
 
 For the Web-UI
