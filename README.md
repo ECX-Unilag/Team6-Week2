@@ -1,8 +1,8 @@
 # Team-6-Week-2
 
-Project Description: An Online Magazine Website
+Project Description: An Online Magazine Website.The magazine has varieties of sections like Science Section,Technology section,Business Section and Fashion Section 
 
-Hello team, here are the links to the UI/UX Designs.
+Here are the links to the UI/UX Designs.
 
 For the Web-UI
 https://xd.adobe.com/view/120c1f28-1bcd-4961-a51b-8f94df5cff22-475f/
@@ -16,7 +16,7 @@ NOTE: To navigate the Mobile UI
       Then Tap on “CLICK HERE TO SIGN IN”
       Then Tap on Continue
 
-Front End Link
+ This is the Front End Hosted Link
 https://team6-frontend.netlify.app/
 
 Active pages are Landing Page
