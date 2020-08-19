@@ -1,4 +1,7 @@
 # Team-6-Week-2
+
+Project Description: An Online Magazine Website
+
 Hello team, here are the links to the UI/UX Designs.
 
 For the Web-UI
@@ -12,3 +15,16 @@ NOTE: To navigate the Mobile UI
       Then tap through the Onboarding Slides
       Then Tap on “CLICK HERE TO SIGN IN”
       Then Tap on Continue
+
+Front End Link
+https://team6-frontend.netlify.app/
+
+Active pages are Landing Page
+                 Sign In 
+                 Sign Up
+                 My magazine Page
+                 Science Magazine Page
+                 Technology Magazine Page
+                 Business Magazine Page
+                 Fashion Magazine Page
+                 Reset Password Page
