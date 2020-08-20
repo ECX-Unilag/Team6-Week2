@@ -53,11 +53,11 @@
         <a class="navbar-brand" href="{% url 'articles:home' %}"><img src="{% static 'articles/images/logo.png' %}" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
             aria-expanded="false" aria-label="Toggle navigation">
-            <i class='bx bx-menu'></i>
+            <i class='bx bx-menu' style="color:black;"></i>
         </button>
         <div class="collapse navbar-collapse" id="main_nav">
             <ul class="navbar-nav">
-                <li class="nav-item active"> <a class="nav-link" href="#">COVID 19 UPDATES</a> </li>
+                <li class="nav-item active"> <a class="nav-link" href="{% url 'articles:covid' %}">COVID 19 UPDATES</a> </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">
@@ -180,7 +180,7 @@
                 <div class="">
                     <div class="d-flex flex-column">
                         <div class="logo_cover">
-                            <img src="../assets/images/logo.png" alt="">
+                            <img src="{% static 'articles/images/logo.png' %}" alt="">
                         </div>
                         <form action="">
                             <p>For Updates, Newsletters and other info</p>

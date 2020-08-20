@@ -48,6 +48,7 @@ class Profile(DetailView):
         context = super().get_context_data(**kwargs)
         context['count'] = ArticleModel.objects.filter(publish=True, author=self.get_object()).count()
         context['articles'] = ArticleModel.objects.filter(publish=True, author=self.get_object()).order_by('-date_posted')
+        context['title'] = 'Profile'
         return context
 
 
@@ -62,6 +63,7 @@ def edit(request):
     else:
         form = CustomUserChangeForm(instance=request.user)
     context = {
-        'form':form
+        'form': form,
+        'title': 'Edit Profile'
     }
     return render(request, 'users/update_profile.html', context)

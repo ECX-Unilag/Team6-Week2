@@ -34,6 +34,27 @@ html{
     margin-top: 25px;
     margin-bottom: 10px;
 }
+.article-row{
+    padding:20px 0;
+}
+.article-image{
+    width:100%;
+}
+
+.article-header-link{
+    dispaly:inline;
+    color:black;
+}
+
+.article-content{
+    padding:40px 0;
+    font-size:20px;
+}
+
+.show-all{
+    display:inline;
+    float:right;
+}
 
 @media (max-width: 600px){
     .article-head{
