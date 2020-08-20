@@ -47,3 +47,9 @@ Active pages are Landing Page
                  Business Magazine Page
                  Fashion Magazine Page
                  Reset Password Page
+                 
+ This is the Back End Hosted Link
+ https://mag-ng.herokuapp.com/
+ 
+ api link
+ https://mag-ng.herokuapp.com/api/

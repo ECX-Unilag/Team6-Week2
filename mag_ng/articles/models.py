@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 
 User = get_user_model()
 
+
 def default_start_time():
     now = datetime.now()
     start = now.replace(hour=22, minute=0, second=0, microsecond=0)
@@ -13,8 +14,32 @@ def default_start_time():
 
 
 categories_choices = (
-    ('fashion', 'fashion'),
-    ('beauty', 'beauty')
+    ('Art & Architecture', 'Art & Architecture'),
+    ('Boating & Aviation', 'Boating & Aviation'),
+    ('Business & Finance', 'Business & Finance'),
+    ('Cars & Motorcycles', 'Cars & Motorcycles'),
+    ('Celebrity & Gossip', 'Celebrity & Gossip'),
+    ('Comics & Manga', 'Comics & Manga'),
+    ('Crafts', 'Crafts'),
+    ('Culture & Literature', 'Culture & Literature'),
+    ('Family & Parenting', 'Family & Parenting'),
+    ('Fashion', 'Fashion'),
+    ('Food & Wine', 'Food & Wine'),
+    ('Health & Fitness', 'Health & Fitness'),
+    ('Home & Garden', 'Home & Garden'),
+    ('Hunting & Fishing', 'Hunting & Fishing'),
+    ('Kids & Teen', 'Kids & Teen'),
+    ('Luxury', 'Luxury'),
+    ('Men\'s Lifestyle', 'Men\'s Lifestyle'),
+    ('Movies, Tv & Music', 'Movies, Tv & Music'),
+    ('News & Politics', 'News & Politics'),
+    ('Photography', 'Photography'),
+    ('Science & Engineering', 'Science & Engineering'),
+    ('Sports', 'Sports'),
+    ('Tech & Gaming', 'Tech & Gaming'),
+    ('Travel & Outdoor', 'Travel & Outdoor'),
+    ('Women\'s Lifestyle', 'Women\'s Lifestyle'),
+    ('Adult +18', 'Adult +18'),
 )
 
 
@@ -39,7 +64,7 @@ class ImageModel(models.Model):
     timestamp = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.article
+        return self.article.title
 
 
 class TextModel(models.Model):
@@ -49,4 +74,4 @@ class TextModel(models.Model):
     timestamp = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.article
+        return self.article.title
