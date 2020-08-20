@@ -21,7 +21,10 @@ nav img {
 /* ============================================= */
 /* ================ PAGE PRELOADER ============= */
 /* ============================================= */
-
+.loader img {
+    width: 100%;
+    height: auto;
+}
 .loader {
     position: absolute;
     display: flex;
@@ -150,6 +153,10 @@ nav img {
 .nav_bar-new .nav-link {
     color: var(--text-gray) !important;
 }
+.nav_bar-new .navbar-toggler i {
+    color: var(--text-gray) !important;
+}
+
 .nav-link:hover {
     color: var(--main-red) !important;
 }
@@ -265,7 +272,7 @@ nav img {
 .footer_bottom a {
     margin-bottom: 0 !important;
 }
-@media all and (min-width: 768px) {
+@media all and (min-width: 900px) {
     .navbar{ 
         padding-top: 0; padding-bottom: 0; 
     }
@@ -281,8 +288,27 @@ nav img {
     .navbar .nav-link{ 
         padding-top:1rem; 
         padding-bottom:1rem; 
-     }
+    }
 }
+@media all and (min-width: 768px) {
+    .navbar{ 
+        padding-top: 0; padding-bottom: 0; 
+    }
+    .navbar .has-megamenu{
+        position:static!important;
+    }
+    .navbar .megamenu{
+        right:0; 
+        width:85%; 
+        padding:20px;  
+    }
+    .navbar .nav-link{ 
+        padding-top:1rem; 
+        padding-bottom:1rem; 
+    }
+    
+}
+
 @media screen and (max-width: 1024px) {
     #main_footer {
         margin-top: 4.5rem;
@@ -327,13 +353,48 @@ nav img {
     }
 }
 @media screen and (max-width: 768px) {
-    /* ================== FOOTER STYLES =================== */
-    /* ==================================================== */
+    /* ====== NAVIGAYION ======== */
+    .navbar-brand {
+        width: 4rem;
+    }
+    .nav-link {
+        font-size: 0.8rem !important;
+    }
+    .dropdown-menu .row {
+        padding: 0 0.8rem;
+    }
+    .dropdown-menu h6 {
+        font-size: 0.8rem;
+        padding-bottom: 0.4rem;
+    }
+    .dropdown-menu li {
+        margin-bottom: 0.5rem !important;
+    }
+    .dropdown-menu a {
+        font-size: 0.7rem;
+    }
+    #sign_up {
+        border: 1.5px solid var(--text-white);
+    }
+    .nav_bar-new #sign_up {
+        border: 1.5px solid var(--main-red);
+    }
+    #sign_up:hover,
+    #sign_up:focus,
+    #sign_up:active {
+        border: 1.5px solid var(--main-red);
+    }
+    .navbar-toggler {
+        font-size: 1.6rem !important;
+    }
+
+    /* FOOTER STYLES */
+    
     #main_footer {
         margin-top: 4.5rem;
     }
     .footer_top {
-        padding: 1rem 7rem;
+        padding: 1rem 6rem;
     }
     .footer_bottom {
         padding: 0.6rem 4rem;
@@ -375,7 +436,103 @@ nav img {
 }
 
 @media screen and (max-width: 568px) {
+    .navbar-brand {
+        width: 6rem;
+    }
+    .navbar-collapse {
+        display: flex;
+        flex-direction: column;
+    }
+    .navbar-collapse ul:nth-child(2) {
+        margin: auto !important;
+        text-align: center;
+    }
+    .dropdown-menu {
+        background-color: var(--text-white) !important;
+        padding: 0.5rem 0.7rem!important;
+    }
+    
+    #main_footer {
+        margin-top: 4rem;
+    }
+    .footer_top {
+        padding: 1rem 2rem;
+    }
+    .footer_bottom {
+        padding: 0.6rem 1rem;
+    }
+    #main_footer a {
+        font-size: 0.7rem;
+    }
+    #main_footer p {
+        font-size: 0.7rem;
+    }
+    .logo_cover {
+        width: 40%;
+        margin-bottom: 0.7rem;
+    }
+    .app_img {
+        width: 40%;
+    }
+    .subscribe_button {
+        top: 0.17rem;
+        right: 0.2rem;
+        border-radius: 8px;
+        font-size: 0.7rem;
+        padding: 0.3rem 0.7rem;
+    }
+    .nav-link {
+        margin-bottom: 1rem;
+    }
+    
 }
 
 @media screen and (max-width: 468px) {
+    
+    .footer_top {
+        padding: 1rem 5rem;
+        padding-top: 2rem;
+    }
+    .footer_bottom {
+        padding: 0.6rem 4rem;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    .footer_grid {
+        grid-template-columns: 1fr;
+        grid-column-gap: 2rem;
+        grid-row-gap: 1.5rem;
+    }
+    #main_footer h3 {
+        font-size: 0.9rem;
+    }
+    #main_footer a {
+        font-size: 0.8rem;
+    }
+    #main_footer p {
+        font-size: 0.7rem;
+    }
+    .logo_cover {
+        width: 40%;
+        margin-bottom: 0.7rem;
+    }
+    .app_img {
+        width: 40%;
+    }
+    .footer_bottom p {
+        margin: 0.5rem 0 !important;
+    }
+    .subscribe_button {
+        top: 0.17rem;
+        right: 0.25rem;
+        border-radius: 8px;
+        font-size: 0.7rem;
+        padding: 0.3rem 0.9rem;
+    }
+    #email_sub {
+        font-size: 0.7rem;
+        margin-top: 0.5rem;
+        padding: 0.6rem 0.8rem;
+    }
 }

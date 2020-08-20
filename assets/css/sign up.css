@@ -5,7 +5,7 @@
   --marginB: 18px;
   --label-fontF: "";
   --social-text-FF: ""Open Sans", sans-serif";
-  --small-text-FF: "Open Sans", sans-serif
+  --small-text-FF: 'Open Sans', sans-serif;
   --regular-text-FF: "Roboto", sans-serif
 }
 
@@ -17,7 +17,7 @@ font-family: 'Roboto', sans-serif; */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: var(--small-text-FF)
+  font-family: var(--small-text-FF);
 }
 
 main {
@@ -54,7 +54,7 @@ label {
 
 input {
     outline: none;
-    font-family: 'Dosis', sans-serif;
+    font-family: var(--small-text-FF);
     font-size: 12px;
     padding: 4px 10px;
   height: 36px;
@@ -81,7 +81,7 @@ input[type="submit"] {
   display: inline-block;
   font-size: 10px;
   margin-bottom: var(--marginB);
-  font-family: var(--regular-text-FF);
+  font-family: var(--small-text-FF);
 }
 
 .btn-submit {
@@ -101,7 +101,7 @@ input[type="submit"] {
   width: 100%;
   display: inline-block;
   text-align: center;
-  font-family: var(--social-text-FF);
+  font-family: var(--small-text-FF);
 }
 
 .socialicons {
