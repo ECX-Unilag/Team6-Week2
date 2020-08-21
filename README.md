@@ -23,7 +23,7 @@ For the Web-UI
 https://xd.adobe.com/view/120c1f28-1bcd-4961-a51b-8f94df5cff22-475f/
 
 For the Mobile-UI
-https://xd.adobe.com/view/be1b0981-d214-4778-b23c-59fc150f4eaf-eb48/
+https://xd.adobe.com/view/6165a0b0-5f9a-4464-ba6b-128c292f5d48-3436/
 
 NOTE: To navigate the Mobile UI
 
